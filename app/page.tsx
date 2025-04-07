@@ -13,8 +13,8 @@ export default function Home() {
           <div className="flex items-center space-x-6">
             <Link href="#features" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Features</Link>
             <Link href="#pricing" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Pricing</Link>
-            <Link href="/login" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Login</Link>
-            <Link href="/signup" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+            <Link href="/auth/signin" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Login</Link>
+            <Link href="/auth/signup" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
               Get Started
             </Link>
           </div>
@@ -32,7 +32,7 @@ export default function Home() {
               Seamlessly integrate smart chatbots across Instagram, your website, and more. Engage with customers 24/7 and boost your business growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/signup" className="bg-blue-600 text-white px-8 py-3 rounded-lg text-center hover:bg-blue-700 transition-colors">
+              <Link href="/auth/signup" className="bg-blue-600 text-white px-8 py-3 rounded-lg text-center hover:bg-blue-700 transition-colors">
                 Start Free Trial
               </Link>
               <Link href="#demo" className="border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-8 py-3 rounded-lg text-center hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
@@ -107,7 +107,7 @@ export default function Home() {
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
             Join thousands of businesses that are already using ChatBotify to enhance their customer experience.
           </p>
-          <Link href="/signup" className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors inline-block">
+          <Link href="/auth/signup" className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors inline-block">
             Start Your Free Trial
           </Link>
         </div>
