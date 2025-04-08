@@ -1,23 +1,38 @@
-import NextAuth from "next-auth";
+import NextAuth, { AuthOptions, DefaultSession } from "next-auth";
+import { JWT } from "next-auth/jwt";
+import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
-import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 
 interface User {
   id: string;
   email: string;
-  password: string;
+  companyName?: string | null;
 }
 
-const handler = NextAuth({
+declare module "next-auth" {
+  interface Session extends DefaultSession {
+    user: User & DefaultSession["user"];
+  }
+}
+
+declare module "next-auth/jwt" {
+  interface JWT {
+    id: string;
+    email: string;
+    companyName?: string | null;
+  }
+}
+
+export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
       name: "credentials",
       credentials: {
         email: { label: "Email", type: "email" },
-        password: { label: "Password", type: "password" }
+        password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
@@ -26,8 +41,8 @@ const handler = NextAuth({
 
         const user = await prisma.user.findUnique({
           where: {
-            email: credentials.email
-          }
+            email: credentials.email,
+          },
         });
 
         if (!user || !user?.password) {
@@ -43,33 +58,42 @@ const handler = NextAuth({
           throw new Error("Invalid credentials");
         }
 
-        return user;
-      }
-    })
+        return {
+          id: user.id,
+          email: user.email,
+          companyName: user.companyName ?? null,
+        } as User;
+      },
+    }),
   ],
   session: {
     strategy: "jwt",
   },
-  pages: {
-    signIn: "/auth/signin",
-  },
   callbacks: {
     async session({ session, token }) {
-      if (token && session.user) {
-        session.user.id = token.id as string;
-        session.user.email = token.email as string;
+      if (token) {
+        session.user.id = token.id;
+        session.user.email = token.email;
+        session.user.companyName = token.companyName;
       }
       return session;
     },
     async jwt({ token, user }) {
       if (user) {
-        token.id = user.id;
-        token.email = user.email;
+        const typedUser = user as User;
+        token.id = typedUser.id;
+        token.email = typedUser.email;
+        token.companyName = typedUser.companyName ?? null;
       }
       return token;
     },
   },
+  pages: {
+    signIn: "/sign-in",
+  },
+  debug: process.env.NODE_ENV === "development",
   secret: process.env.NEXTAUTH_SECRET,
-});
+};
 
+const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST }; 
