@@ -21,6 +21,14 @@ model User {
   hashedPassword String?
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
+
+  // Workflow Configuration
+  workflowPlatforms String[]  @default([])
+  workflowGoals     String[]  @default([])
+  workflowTones     String[]  @default([])
+  workflowCompleted Boolean   @default(false)
+  // Consider storing context file info (e.g., URLs if uploaded) here too
+
   accounts       Account[]
   sessions       Session[]
 }

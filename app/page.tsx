@@ -82,7 +82,7 @@ export default function Home() {
                 </Link>
               ) : (
                 <>
-                  <Link href="/auth/signup" className="bg-blue-600 text-white px-8 py-3 rounded-lg text-center hover:bg-blue-700 transition-colors">
+                  <Link href="/workflow" className="bg-blue-600 text-white px-8 py-3 rounded-lg text-center hover:bg-blue-700 transition-colors">
                     Start Free Trial
                   </Link>
                   <Link href="#demo" className="border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-8 py-3 rounded-lg text-center hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
@@ -159,7 +159,7 @@ export default function Home() {
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
             Join thousands of businesses that are already using ChatBotify to enhance their customer experience.
           </p>
-          <Link href="/auth/signup" className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors inline-block">
+          <Link href="/workflow" className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors inline-block">
             Start Your Free Trial
           </Link>
         </div>
