@@ -1,0 +1,34 @@
+ChatBotify is an AI-powered chatbot platform that helps businesses automate their customer support and engagement across multiple channels.
+
+Key Features:
+1. Multi-channel Integration
+   - Instagram Direct Messages
+   - Website Chat Widget
+   - Custom API Endpoints
+
+2. AI Capabilities
+   - Natural Language Processing
+   - Contextual Understanding
+   - Multi-language Support
+   - Custom Knowledge Base
+
+3. Business Benefits
+   - 24/7 Customer Support
+   - Reduced Response Time
+   - Increased Customer Satisfaction
+   - Cost-effective Solution
+
+4. Pricing Plans
+   - Free Trial: 1 chatbot for 1 month
+   - Monthly: $100 per chatbot
+   - Lifetime: $1000 per chatbot (Most Popular)
+   - Enterprise: Custom pricing for unlimited chatbots
+
+5. Technical Features
+   - Easy Integration
+   - Customizable Responses
+   - Analytics Dashboard
+   - API Access
+   - Webhook Support
+
+The platform is designed to be user-friendly while providing powerful AI capabilities for businesses of all sizes. It can be easily integrated into existing websites and social media platforms, providing a seamless experience for both businesses and their customers. 
