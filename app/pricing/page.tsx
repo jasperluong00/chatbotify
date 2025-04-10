@@ -125,7 +125,7 @@ export default function PricingPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className={`relative rounded-2xl bg-white dark:bg-gray-800 p-8 shadow-lg ring-1 ring-gray-200 dark:ring-gray-700 ${
+              className={`relative flex flex-col justify-between rounded-2xl bg-white dark:bg-gray-800 p-8 shadow-lg ring-1 ring-gray-200 dark:ring-gray-700 ${
                 tier.popular ? 'ring-2 ring-blue-500' : ''
               }`}
               onMouseEnter={() => setIsHovered(index)}
@@ -139,7 +139,7 @@ export default function PricingPage() {
                 </div>
               )}
               
-              <div className="text-center">
+              <div className="text-center mb-8">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                   {tier.name}
                 </h3>
@@ -151,16 +151,16 @@ export default function PricingPage() {
                     {tier.duration}
                   </span>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                <p className="text-gray-600 dark:text-gray-300 mb-6 h-12 flex items-center justify-center">
                   {tier.description}
                 </p>
               </div>
 
-              <ul className="space-y-4 mb-8">
+              <ul className="space-y-4 mb-8 flex-grow">
                 {tier.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
+                  <li key={feature} className="flex items-start gap-3 text-gray-600 dark:text-gray-300">
                     <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
-                    <span>{feature}</span>
+                    <span className="flex-1">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -198,7 +198,7 @@ export default function PricingPage() {
                 Is there a setup fee?
               </h3>
               <p className="text-gray-600 dark:text-gray-300">
-                No, there are no setup fees. You only pay for the plan you choose, and you can start with our free trial.
+                No, there are no setup fees for any of our plans.
               </p>
             </div>
           </div>
